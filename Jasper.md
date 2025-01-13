@@ -85,3 +85,41 @@ SELECT * FROM ORDERS WHERE "SHIPCITY" = $P{Parameter1}
 ```
 ![image](https://github.com/user-attachments/assets/11480495-ed96-445c-8595-162026984cbe)
 
+![image](https://github.com/user-attachments/assets/79362222-fb83-4fe9-85e2-b8e43334d9d7)
+
+# Crear grupos de datos.
+
+![image](https://github.com/user-attachments/assets/4964ccd2-504e-4b38-845f-d241641bee4c)
+
+![image](https://github.com/user-attachments/assets/f0e4612b-c2cf-4f2b-9b94-3569d11e19d1)
+
+![image](https://github.com/user-attachments/assets/78e0f31b-15ed-4d6d-9ad7-9add213b0561)
+
+![image](https://github.com/user-attachments/assets/43f1cbc6-263c-446e-9801-e7c3967fd721)
+
+![image](https://github.com/user-attachments/assets/b2c3f791-d1dd-455a-a0e9-770673bfed85)
+
+![image](https://github.com/user-attachments/assets/7dd5b31b-c036-4263-be17-e40eb07f7f6a)
+
+
+#VARIABLES
+
+![image](https://github.com/user-attachments/assets/b2723ec0-4c5c-4970-97ee-cf0c31b5646e)
+
+![image](https://github.com/user-attachments/assets/6eb56692-8107-4905-a439-9449dd4b3167)
+
+Es importante observar el tipo de reinicio y el tipo de incremento.
+![image](https://github.com/user-attachments/assets/25c698d8-6c39-4430-b2eb-15a08e744cc9)
+   
+---
+   
+tiempo de evaluacion.
+![image](https://github.com/user-attachments/assets/cc9b9173-b23f-4c0f-8ed2-4347557960a8)
+
+configurar el tiempo de evaluacion de la variable.
+![image](https://github.com/user-attachments/assets/93a4c456-3f0f-4a84-9d2c-17eaa19293de)
+
+![image](https://github.com/user-attachments/assets/55c71407-b9a4-456c-bf22-48c6f2da6b0c)
+
+---
+   
