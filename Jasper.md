@@ -125,6 +125,12 @@ configurar el tiempo de evaluacion de la variable.
 
 ---
 
+Crear variable manualmente.
+
+![image](https://github.com/user-attachments/assets/149779f7-bfe6-41df-9c0c-913964488163)
+
+
+
 # Notas
 ```sql
 $P{nombre} -> Parametro
