@@ -88,6 +88,8 @@ SELECT * FROM ORDERS WHERE "SHIPCITY" = $P{Parameter1}
 ![image](https://github.com/user-attachments/assets/79362222-fb83-4fe9-85e2-b8e43334d9d7)
 
 # Crear grupos de datos.
+>[!CAUTION]
+>ES DE VITAL IMPORTANCIA ORDENAR LOS RESULTSETS ANTES DE AGRUPAR. SORT -> GROUP. de lo contrario se creará un nuevo grupo con cada cambio de nombre del campo discriminador..
 
 ![image](https://github.com/user-attachments/assets/4964ccd2-504e-4b38-845f-d241641bee4c)
 
@@ -102,7 +104,7 @@ SELECT * FROM ORDERS WHERE "SHIPCITY" = $P{Parameter1}
 ![image](https://github.com/user-attachments/assets/7dd5b31b-c036-4263-be17-e40eb07f7f6a)
 
 
-#VARIABLES
+# VARIABLES
 
 ![image](https://github.com/user-attachments/assets/b2723ec0-4c5c-4970-97ee-cf0c31b5646e)
 
