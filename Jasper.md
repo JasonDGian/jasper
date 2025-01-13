@@ -124,4 +124,9 @@ configurar el tiempo de evaluacion de la variable.
 ![image](https://github.com/user-attachments/assets/55c71407-b9a4-456c-bf22-48c6f2da6b0c)
 
 ---
-   
+
+# Notas
+```sql
+$P{nombre} -> Parametro
+$V{nombre} -> Variable
+$F{nombre} -> Campo (Field)
