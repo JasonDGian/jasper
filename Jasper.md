@@ -39,7 +39,7 @@ pincha en read fields
 
 
 
-##Partes de un informe.
+## Partes de un informe.
 ![image](https://github.com/user-attachments/assets/6c77b54f-c7d0-4d3f-8a5c-5240708f567b)
 
 - Cabecera
