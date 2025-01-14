@@ -78,3 +78,9 @@ introducimos las dependencias arriba citadas.
 
 
 7. para configurar la ubicacion del informe en si usamos ./ -> esto representará la raiz del proyecto.
+
+
+
+
+Para el Jframe tenemos que instalar el Windows Builder.
+https://marketplace.eclipse.org/content/windowbuilder/help
