@@ -47,7 +47,34 @@ java -cp lib/hsqldb.jar org.hsqldb.Server -database.0 file:data/database/test -d
 Debemos ver el puerto en el que escucha la bbdd.
 ![image](https://github.com/user-attachments/assets/f74ed8e9-9fe8-493f-bb14-d4157f88b102)
 
-3. 
+3. Para conectar a una instancia de bbdd local.
+Create adapter.
+![image](https://github.com/user-attachments/assets/afe93b6a-32fb-4be7-859b-219ae5b32bc9)
+
+![image](https://github.com/user-attachments/assets/6df82f45-d0df-4974-b459-c36cba5af62e)
 
 
 
+```
+jdbcmysql://localhost/esquema
+```
+
+
+4. Crear el informe -> Compilar el proyecto con `build all`.
+Cuando compila convierte el JXML a Jasper.
+El fichero en formato Jasper es el que hace falta para su distribución.
+
+5. Creamos el proyecto eclipse, con quickstart.
+Iniciamos un proyecto maven con el arquetipo de quickstart.
+`org.apache.maven.archetypes`
+
+introducimos las dependencias arriba citadas.
+ 
+6. Creamos el Jframe y la clase pedidos.
+- new jframe
+- meter boton, doble clic configurar funciona boton.
+- pegar codigos en clase pedidos.
+- pegar informe en directorio informes.
+
+
+7. 
