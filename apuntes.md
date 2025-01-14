@@ -1,9 +1,64 @@
-Para columnizar , en las propiedades del informe, en la raiz de la izquierda, se encuentra en avanzadas, propiedad column count. Tambien se puede cambiar el orden de impresion de horizonta la vertical y vicevers.
+# 📌 Informes incrustados en apicaciones Java.
+Para poder incluir la funcionalidad de crear informes en nuestra aplicacion Java deberemos seguir los siguientes pasos:
+1. Disponer y encender la BBDD.
+2. Crear el informe y compilarlo en formato `.jasper`.
+3. Introducir las dependencias necesarias en el proyecto (ya sea manual o mediante maven o gradle).
+4. Introducir el fichero Jasper en la estructura del proyecto.
+5. Crear las clases necesarias para su integracion en el proyecto.
 
-# Insertar código en App Java.
-1. Buscar dependencias de Maven para usar Jasper.
+---
 
-**Dependencias Maven**
+## 📍 Base de datos.
+Para poder realizar informes necesitamos una base de datos a la cual atacar. En el caso de este ejemplo usaremos una base de datos **HSQL**.
+Descargamos el fichero, descomprimimos y utilizamos el comando de encendido.
+
+En el directorio en el que descomprimos la base de datos, ejecutamos el siguiente comando.
+```cmd
+java -cp lib/hsqldb.jar org.hsqldb.Server -database.0 file:data/database/test -dbname.0 test
+```
+
+>[!NOTE]
+>El comando se debe de ejecutar en el directorio que contiene la carpeta `/lib`.
+
+Debemos ver el puerto en el que escucha la bbdd.  
+    
+![image](https://github.com/user-attachments/assets/f74ed8e9-9fe8-493f-bb14-d4157f88b102)
+
+https://drive.google.com/file/d/1DN4ODBUig3F59-yh_G86HpY-fNcA0xdN/view
+
+## 📍 Creamos el informe.
+Es necesario crear un informe y compilar el proyecto ya que por defecto el formato de diseño de Jasper es **`.JXML`** y el formato necesario para la distribucion de informes es **`.jasper`**.
+
+### 🔸 Conectar con una instancia de base de datos.
+Para conectar a una instancia de bbdd local.
+Create adapter.
+![image](https://github.com/user-attachments/assets/afe93b6a-32fb-4be7-859b-219ae5b32bc9)
+
+![image](https://github.com/user-attachments/assets/6df82f45-d0df-4974-b459-c36cba5af62e)
+
+
+### 🔸 Compilar el informe.
+Para poder llevar el informe a nuestra aplicacion Java necesitamos un fichero en formato `.jasper`.
+Para ello crearemos el informe con los parametros y campos deseados y a continuación pincharemos en `Project` y luego en `Build all`.
+
+![image](https://github.com/user-attachments/assets/c292e6c1-e466-44ae-aa9f-015907bd0976)
+      
+![image](https://github.com/user-attachments/assets/05bbbb5f-37e7-4cfa-98cd-f1be6d3e33a7)
+    
+![image](https://github.com/user-attachments/assets/115f75bc-6708-4325-a2c2-38f7fb658b9e)
+
+
+## 📍 Introducir las dependencias Maven necesarias.
+Para poder realizar las funciones básicas con los informes Jasper es necesario incluir las siguientes dependencias.
+- **Jasper Reports**: https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports/7.0.1   
+- **Mysql Connector**: https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.33
+- **HSQL Database**: https://mvnrepository.com/artifact/org.hsqldb/hsqldb/2.7.4
+- **Jasper Reports PDF**: https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-pdf/7.0.1
+
+>[!TIP]
+>El arquetipo de Maven preferido para estos trabajos es `quickstart` _(org.apache.maven.archetype 1.5)_. 
+
+**Dependencias para Maven**
 ```xml
 <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 <dependency>
@@ -23,7 +78,6 @@ Para columnizar , en las propiedades del informe, en la raiz de la izquierda, se
     <artifactId>hsqldb</artifactId>
     <version>2.7.4</version>
     <classifier>jdk8</classifier>  
-<!-- !!!!Para que se baje el jar de hsqldb. Si no hay que añadirlo a mano en el classpath en el proyecto si ponemos lo que viene en maven de hsqldb –>
 </dependency>
 <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-pdf -->
 <dependency>
@@ -33,25 +87,169 @@ Para columnizar , en las propiedades del informe, en la raiz de la izquierda, se
 </dependency>
 ```
 
-2. Arrancar la base de datos de ejemplo.
-HSQLDB es una bbdd local y 
-https://drive.google.com/file/d/1DN4ODBUig3F59-yh_G86HpY-fNcA0xdN/view
+## 📍 Creamos la clase que contiene la información relacionada con el informe.
+Es necesario crear una clase que refleje la estructura de la información que deseamos recuperar en el informe.
+Para ello crearemos un objeto que contendrá los siguientes elementos:
+- Bloque de configuración de conexión a BBDD.
+- Constructor que conecta con la BBDD.
+- Método que recibe el parametro para el informe.
+    - Indica una cadena que representa el fichero Jasper del informe.
+    - Indica con una cadena el destino de guardado del fichero.
+    - Indica con una cadena el nombre del fichero a guardar.
 
-descomprimir y abrir cmd
-y ejecutar el comando para compilar la bbdd y arranque.
-compilar lib/hsqldb.jar.
-```cmd
-java -cp lib/hsqldb.jar org.hsqldb.Server -database.0 file:data/database/test -dbname.0 test
+**Objeto de informe**:
+```java
+package jasperInforme.jasperInforme;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JOptionPane;
+
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+
+public class Pedidos
+{
+	public static Connection conexion = null;
+	String baseDatos = "jdbc:hsqldb:hsql://localhost:9001/test";
+	String usuario = "sa";
+	String clave = "";
+
+	// Constructor que conecta a la base de datos de prueba
+	public Pedidos()
+	{
+		try
+		{
+			Class.forName("org.hsqldb.jdbcDriver").newInstance();
+			conexion = DriverManager.getConnection(baseDatos, usuario, clave);
+		} catch (ClassNotFoundException cnfe)
+		{
+			System.err.println("Fallo al cargar JDBC " + cnfe.getMessage());
+			System.exit(1);
+		} catch (SQLException sqle)
+		{
+			System.err.println("No se pudo conectar a BD " + sqle.getMessage());
+			System.exit(1);
+		} catch (java.lang.InstantiationException sqlex)
+		{
+			System.err.println("Imposible Conectar");
+			System.exit(1);
+		} catch (Exception ex)
+		{
+			System.err.println("Imposible Conectar");
+			System.exit(1);
+		}
+	}
+
+	// El método ejecutar recibe el parametro del informe
+	public void ejecutar(String ciudad)
+	{
+		// Ruta del informe respecto del proyecto NetBeans
+		String archivojasper = "./informes/Blank_A4.jasper";
+		try
+		{
+			// Cargamos los parametros del informe en una tabla Hash
+			Map parametros = new HashMap();
+			parametros.put("Parameter1", ciudad);
+			// Generamos el informe en memoria
+			JasperPrint print = JasperFillManager.fillReport(archivojasper, parametros, conexion);
+			// Exporta el informe a PDF
+			JasperExportManager.exportReportToPdfFile(print, "informe.pdf");
+			// Abre el archivo PDF generado
+			File path = new File("informe.pdf");
+			Desktop.getDesktop().open(path);
+		}
+
+		catch (Exception e)
+		{
+			JOptionPane.showMessageDialog(null, e.toString(), "Error", JOptionPane.WARNING_MESSAGE);
+		}
+
+	}
+
+}
 ```
 
-Debemos ver el puerto en el que escucha la bbdd.
-![image](https://github.com/user-attachments/assets/f74ed8e9-9fe8-493f-bb14-d4157f88b102)
+**Objeto ventana que realiza la accion de generar informe**:
+```java
+package jasperInforme.jasperInforme;
 
-3. Para conectar a una instancia de bbdd local.
-Create adapter.
-![image](https://github.com/user-attachments/assets/afe93b6a-32fb-4be7-859b-219ae5b32bc9)
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-![image](https://github.com/user-attachments/assets/6df82f45-d0df-4974-b459-c36cba5af62e)
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Ventana extends JFrame
+{
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args)
+	{
+		EventQueue.invokeLater(new Runnable() {
+			public void run()
+			{
+				try
+				{
+					Ventana frame = new Ventana();
+					frame.setVisible(true);
+				} catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Ventana()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+
+		JButton btnNewButton = new JButton("Keroro");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+
+				// Accion que realiza el boton.
+				Pedidos informe = new Pedidos();
+				String ciudad = "Barcelona";
+				informe.ejecutar(ciudad);
+
+			}
+		});
+		contentPane.add(btnNewButton);
+	}
+
+}
+```
+
+
+
+
+---
 
 
 
@@ -59,10 +257,6 @@ Create adapter.
 jdbcmysql://localhost/esquema
 ```
 
-
-4. Crear el informe -> Compilar el proyecto con `build all`.
-Cuando compila convierte el JXML a Jasper.
-El fichero en formato Jasper es el que hace falta para su distribución.
 
 5. Creamos el proyecto eclipse, con quickstart.
 Iniciamos un proyecto maven con el arquetipo de quickstart.
