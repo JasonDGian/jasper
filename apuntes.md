@@ -77,4 +77,4 @@ introducimos las dependencias arriba citadas.
 - pegar informe en directorio informes.
 
 
-7. 
+7. para configurar la ubicacion del informe en si usamos ./ -> esto representará la raiz del proyecto.
