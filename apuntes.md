@@ -75,6 +75,7 @@ introducimos las dependencias arriba citadas.
 - meter boton, doble clic configurar funciona boton.
 - pegar codigos en clase pedidos.
 - pegar informe en directorio informes.
+![image](https://github.com/user-attachments/assets/6ee94e78-0e6f-4ace-a107-1d61e152806d)
 
 
 7. para configurar la ubicacion del informe en si usamos ./ -> esto representará la raiz del proyecto.
@@ -82,5 +83,7 @@ introducimos las dependencias arriba citadas.
 
 
 
-Para el Jframe tenemos que instalar el Windows Builder.
-https://marketplace.eclipse.org/content/windowbuilder/help
+Para el Jframe tenemos que instalar el Windows Builder. -> Help -> Marketplace `Windowbuilder`.
+![image](https://github.com/user-attachments/assets/76afbccc-227e-47e2-8866-1efa5ab6479b)
+
+
