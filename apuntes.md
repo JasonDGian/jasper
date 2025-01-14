@@ -30,11 +30,26 @@ https://drive.google.com/file/d/1DN4ODBUig3F59-yh_G86HpY-fNcA0xdN/view
 Es necesario crear un informe y compilar el proyecto ya que por defecto el formato de diseño de Jasper es **`.JXML`** y el formato necesario para la distribucion de informes es **`.jasper`**.
 
 ### 🔸 Conectar con una instancia de base de datos.
-Para conectar a una instancia de bbdd local.
-Create adapter.
-![image](https://github.com/user-attachments/assets/afe93b6a-32fb-4be7-859b-219ae5b32bc9)
+Para conectar a una instancia de bbdd local, en la pestaña `Repository Explorer`, hacemos clic derecho sobre `Data Adapters` y seleccionamos la entrada `Create new Adapter`.
 
-![image](https://github.com/user-attachments/assets/6df82f45-d0df-4974-b459-c36cba5af62e)
+![image](https://github.com/user-attachments/assets/db087915-4e13-4bf8-923a-6a8eaf5f49b0)
+   
+Seleccionamos `New JDB Connection` y pinchamos en `Next`.
+   
+![image](https://github.com/user-attachments/assets/d1e38702-c8a6-44fd-81ec-8aee315dc933)
+
+Configuramos la cadena de conexión y , de haberlos, los credenciales.
+   
+![image](https://github.com/user-attachments/assets/b62b5288-1b27-4cad-8701-5bdb756b2e7c)
+
+Pinchamos en `Test` para comprobar el éxito de la conexión.
+   
+![image](https://github.com/user-attachments/assets/7fdd5a11-f0ad-4406-98b4-83ea72586174)
+
+Pinchando en `Finish` veremos como aparece nuestro nuevo adaptador.
+   
+![image](https://github.com/user-attachments/assets/fd765a96-21c8-404b-970e-1b9a4b9557e4)
+
 
 
 ### 🔸 Compilar el informe.
