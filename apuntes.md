@@ -43,6 +43,11 @@ Seleccionamos `New JDB Connection` y pinchamos en `Next`.
 
 Configuramos la cadena de conexión y , de haberlos, los credenciales.
    
+>[!IMPORTANT]
+> Si hemos configurado un puerto distinto al puerto por defecto de escucha del servidor HSQL deberemos especificarlo despues de `localhost` con `:puerto`
+>
+>Ejemplo:`localhost:9002`  
+  
 ![image](https://github.com/user-attachments/assets/b62b5288-1b27-4cad-8701-5bdb756b2e7c)
 
 Pinchamos en `Test` para comprobar el éxito de la conexión.
