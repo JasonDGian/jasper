@@ -19,7 +19,7 @@ java -cp lib/hsqldb.jar org.hsqldb.Server -port 9001 -database.0 file:data/datab
 
 >[!CAUTION]
 > Es posible que el puerto esté ocupado por otros servicios, en ese caso deberemos especificar un puerto distinto para el encendido del servidor HSQL.
->
+
 >[!NOTE]
 >El comando se debe de ejecutar en el directorio que contiene la carpeta `/lib`.
 
