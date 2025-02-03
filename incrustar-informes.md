@@ -56,7 +56,7 @@ Para poder realizar las funciones básicas con los informes Jasper es necesario 
 ```
 
 
-## 📍 Creamos la clase que contiene la información relacionada con el informe.
+## 🔸 Creamos la clase que contiene la información relacionada con el informe.
 Es necesario crear una clase que refleje la estructura de la información que deseamos recuperar en el informe.
 Para ello crearemos un objeto que contendrá los siguientes elementos:
 - Bloque de configuración de conexión a BBDD.
