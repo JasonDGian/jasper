@@ -66,6 +66,14 @@ Para poder realizar las funciones básicas con los informes Jasper es necesario 
 
 
 ## 🔸 Creamos la clase que contiene la información relacionada con el informe.
+Deebemos crear una clase que represente el informe en Java. En esta clase incluiremos los detalles de conexión a base de datos y un metodo que será el encargado de imprimir el informe en PDF. 
+**Atributos del objeto:**
+- cadena de conexión a base de datos.
+- cadena de usuario para la conexión.
+- cadena de contraseña para la conexión.
+
+---
+
 Es necesario crear una clase que refleje la estructura de la información que deseamos recuperar en el informe.
 Para ello crearemos un objeto que contendrá los siguientes elementos:
 - Bloque de configuración de conexión a BBDD.
