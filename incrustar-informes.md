@@ -29,6 +29,7 @@ Para poder realizar las funciones básicas con los informes Jasper es necesario 
 **Dependencias para Maven**
 ```xml
 <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 <dependency>
     <groupId>net.sf.jasperreports</groupId>
     <artifactId>jasperreports</artifactId>
@@ -46,6 +47,8 @@ Para poder realizar las funciones básicas con los informes Jasper es necesario 
     <artifactId>hsqldb</artifactId>
     <version>2.7.4</version>
     <classifier>jdk8</classifier>  
+<!-- Para que se baje el jar de hsqldb. Si no hay que añadirlo a mano en el classpath en el proyecto si ponemos  -->
+<!-- lo que viene en maven de hsqldb -->
 </dependency>
 <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-pdf -->
 <dependency>
@@ -53,6 +56,12 @@ Para poder realizar las funciones básicas con los informes Jasper es necesario 
     <artifactId>jasperreports-pdf</artifactId>
     <version>7.0.1</version>
 </dependency>
+<dependency>
+    <groupId>net.sf.jasperreports</groupId>
+    <artifactId>jasperreports-chart-customizers</artifactId>
+    <version>7.0.1</version>
+</dependency>
+
 ```
 
 
