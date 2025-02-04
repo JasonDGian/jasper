@@ -1,4 +1,4 @@
-# 📌 Informes incrustados en apicaciones Java.
+# 📌 Informes incrustados en aplicaciones Java.
 Para poder incluir la funcionalidad de crear informes en nuestra aplicacion Java deberemos seguir los siguientes pasos:
 1. Disponer y encender la BBDD.
 2. Crear el informe y compilarlo en formato `.jasper`.
