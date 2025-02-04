@@ -47,6 +47,7 @@ controlar que el campo sea sumable
 
 de no serlo castear.
 
+# Parametros.
 
 En la jerarquia de objetos o en la consulta en la pestaña de parametros creamos un nuevo parametor.
 luego en la consulta cogemos y arrastramos el parametro que hemos creado desde la lista de parametros.  la consulta se debera de escribir a mano pero el parametro podemos arrastrarrlo para evitar erores sintacticos. de todas formas seria `$P(nombre)`. Podemos definir una propiedad llamada "Is for prompting que hará una petición, si no lo ponemos el parametro podrá dar error. Tademas podemos configurar unvalor por defecto que tomará en el caso de que no especifiquemos nada. Es necesario observar si llega al default value expression en el caso de entregar una cadena vacia como parametro.
