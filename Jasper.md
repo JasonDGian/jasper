@@ -1,7 +1,6 @@
 # 📌 Jasper.
 Jasper es una herramienta que permite realizar informes atacando un origen de datos. 
 
-
 La pantalla de bienvenida.
 ![image](https://github.com/user-attachments/assets/679bf7b1-fbf3-4dc7-82e0-0f035c1581b2)
 
@@ -50,11 +49,7 @@ Como su nombre indica ocupa la parte superior del informe.
 Elemento que aparece una unica vez en todo el informe. sin importar la cantidad de paginas que genera el informe.
 Representa 
 
-
-
 ![image](https://github.com/user-attachments/assets/71a5816e-fbed-484d-849f-dd78a6dec2b3)
-
-
 
 ## Introducir elementos en informe.
 
@@ -128,8 +123,6 @@ configurar el tiempo de evaluacion de la variable.
 Crear variable manualmente.
 
 ![image](https://github.com/user-attachments/assets/149779f7-bfe6-41df-9c0c-913964488163)
-
-
 
 # Notas
 ```sql
